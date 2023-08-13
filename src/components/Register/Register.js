@@ -7,7 +7,7 @@ export default function Register() {
     return (
         <section className='login'>
             <form className='loginForm'>
-                <img className='loginForm__logo' src={logo} alt='логотип'></img>
+                <Link to='/' className='loginForm__logo-link'><img className='loginForm__logo' src={logo} alt='логотип'></img></Link>
                 <h1 className='loginForm__title'>Добро пожаловать!</h1>
                 <label className='loginForm__input-label'>Имя</label>
                 <input className='loginForm__input' minlength='2' maxlength='30' type='text' placeholder='Введите Имя' required></input>

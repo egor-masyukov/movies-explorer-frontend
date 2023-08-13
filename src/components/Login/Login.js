@@ -6,7 +6,7 @@ export default function Login() {
     return (
         <section className='login'>
             <form className='loginForm' >
-            <Link to='/' className='loginForm__logo-link'><img className='loginForm__logo' src={logo} alt='логотип'></img></Link>
+                <Link to='/' className='loginForm__logo-link'><img className='loginForm__logo' src={logo} alt='логотип'></img></Link>
                 <h1 className='loginForm__title'>Рады видеть!</h1>
                 <label className='loginForm__input-label'>E-mail</label>
                 <input className='loginForm__input' type='email' placeholder='Введите E-Mail' required></input>

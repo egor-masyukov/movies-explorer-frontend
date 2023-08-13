@@ -2,25 +2,21 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
     padding: 246px 0 60px;
     align-items: center;
-    position: fixed;
     z-index: 1;
     background-color: white;
 }
 
 @media screen and (max-width: 780px) {
     .pageNotFound {
-        padding: 4px 0 5px;
-        justify-content: center;
+        padding-top: 406px;
     }
 }
 
 @media screen and (max-width: 570px) {
     .pageNotFound {
-        padding: 100px 0 5px;
+        padding-top: 332px;
     }
 }
 

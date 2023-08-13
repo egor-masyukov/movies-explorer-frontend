@@ -276,13 +276,13 @@
 
 @media screen and (max-width: 780px) {
     .title {
-        padding: 90px 50px;
+        padding-bottom: 19px;
     }
 }
 
 @media screen and (max-width: 570px) {
     .title {
-        padding: 0 0 28px 0;
+        padding-bottom: 29px;
         font-size: 18px;
         letter-spacing: -0.72px;
     }

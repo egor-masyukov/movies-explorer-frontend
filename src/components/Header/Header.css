@@ -5,17 +5,19 @@
     justify-content: space-between;
     background: none;
 }
+.header__logo-link {
+    transition: .3s;
+}
+
+.header__logo-link:hover {
+    opacity: 0.8;
+  }
 
 .header__logo {
     margin: 18px 20px 18px 70px;
     max-width: 38px;
     max-height: 38px;
-    transition: .3s;
 }
-
-.header__logo:hover {
-    opacity: 0.8;
-  }
 
 @media screen and (max-width: 780px) {
     .header__logo {
