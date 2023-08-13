@@ -1,0 +1,324 @@
+.navigationAuth {
+    display: flex;
+    gap: 30px;
+    width: 83%;
+    justify-content: flex-end;
+    margin: 21px 70px 21px 0;
+    align-items: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+@media screen and (max-width: 780px) {
+    .navigationMenu__overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .navigationAuth {
+        margin: 21px 30px 21px 0;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .navigationAuth {
+        font-size: 10px;
+        margin: 21px 14px 21px 0;
+        gap: 15px;
+    }
+}
+
+.navigationMenu {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 780px) {
+    .navigationMenu {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .navigationMenu {
+        font-size: 10px;
+        margin: 0;
+        gap: 15px;
+    }
+}
+
+.navigation {
+    display: flex;
+    width: 92%;
+    margin: 9px 70px 11px 0px;
+    align-items: center;
+}
+
+.navigationMenu__toggle {
+    display: none;
+}
+
+@media screen and (max-width: 780px) {
+    .navigationMenu__toggle {
+        display: block;
+        opacity: 0;
+    }
+
+    .navigationMenu__btn {
+        position: relative;
+        margin: 27px 27px 0 0;
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
+        z-index: 2;
+        transition: .3s;
+    }
+
+    .navigationMenu__btn:hover {
+        opacity: 0.8;
+    }
+
+    .navigationMenu__toggle:checked+.navigationMenu__btn>span {
+        position: relative;
+    }
+
+    .navigationMenu__toggle:checked+.navigationMenu__btn>span {
+        transform: rotate(45deg);
+    }
+
+    .navigationMenu__toggle:checked+.navigationMenu__btn>span::before {
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    .navigationMenu__toggle:checked+.navigationMenu__btn>span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    .navigationMenu__toggle:checked~.navigation {
+        right: 0 !important;
+    }
+
+    .navigationMenu__toggle:checked~.navigationMenu__overlay {
+        background-color: rgba(0, 0, 0, 0.3);
+        display: block;
+    }
+
+    .navigationMenu__toggle:checked~.navigationMenu__btn {
+        position: fixed;
+    }
+
+    .navigationMenu__btn>span,
+    .navigationMenu__btn>span::before,
+    .navigationMenu__btn>span::after {
+        display: block;
+        position: absolute;
+        top: 10px;
+        width: 100%;
+        height: 2px;
+        background-color: #616161;
+        transition-duration: .25s;
+    }
+
+    .navigationMenu__btn>span::before {
+        content: '';
+        top: -8px;
+    }
+
+    .navigationMenu__btn>span::after {
+        content: '';
+        top: 8px;
+    }
+
+    .navigation {
+        flex-direction: column;
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 520px;
+        margin: 0;
+        padding: 145px 0 92px 0;
+        list-style: none;
+        background-color: rgba(255, 255, 255, 1);
+        z-index: 1;
+        transition-duration: .3s;
+        gap: 621px;
+        height: calc(100% - 140px);
+        overflow: auto;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .navigation {
+        width: 100%;
+        padding: 136px 0 92px 0;
+    }
+}
+
+.navigation__items {
+    display: contents;
+}
+
+@media screen and (max-width: 570px) {
+    .navigationMenu__btn {
+        margin: 27px 22px 0 0;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .navigation__items {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 602px;
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .navigation__items {
+        gap: 434px;
+    }
+}
+
+.navigation__movies-switch {
+    margin: 0 auto 0 6px;
+    display: flex;
+}
+
+@media screen and (max-width: 780px) {
+    .navigation__movies-switch {
+        margin: 0 auto 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .navigation__movies-switch {
+        margin: 0 auto 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 9px;
+    }
+}
+
+.navigation__movies {
+    text-align: right;
+    font-size: 13px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #000;
+    margin-right: 16px;
+    transition: .3s;
+}
+
+.navigation__movies:hover {
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 780px) {
+    .navigation__movies {
+        display: inline;
+        font-weight: 500;
+        text-align: center;
+        font-size: 18px;
+        margin: 0 0 22px 0;
+        padding-bottom: 4px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .navigation__movies {
+        padding-bottom: 6px;
+    }
+}
+
+.navigation__movies_active {
+    font-weight: 500;
+}
+
+@media screen and (max-width: 780px) {
+    .navigation__movies_active {
+        border-bottom: 2px solid rgba(0, 0, 0, 1);
+    }
+}
+
+.navigation__button-account {
+    display: flex;
+    color: #000;
+    text-decoration: none;
+    margin: 0;
+    gap: 17px;
+    align-items: center;
+    transition: .3s;
+}
+
+.navigation__button-account:hover {
+    opacity: 0.7;
+}
+
+.navigation__account {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    margin: 0;
+}
+
+.navigation__account-ico {
+    margin: 0;
+    width: 26px;
+    height: 30px;
+    border-radius: 4px;
+    background: #F9F9F9 url(../../images/account-ico.svg) 50%/11.5px no-repeat;
+}
+
+.navigationAuth__reg {
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+    text-decoration: none;
+    color: #FFF;
+    transition: .3s;
+}
+
+.navigationAuth__reg:hover {
+    opacity: 0.7;
+}
+
+.navigationAuth__button-in {
+    border-radius: 3px;
+    background: #2BE080;
+    padding: 8px 20px;
+    text-decoration: none;
+    color: #000;
+    transition: .3s;
+}
+
+.navigationAuth__button-in:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 570px) {
+    .navigationAuth__button-in {
+        padding: 5px 12px;
+    }
+}
+
+.navigationAuth__in {
+    line-height: 16px;
+    margin: 0;
+}

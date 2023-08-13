@@ -1,0 +1,19 @@
+.movies {
+    max-width: 1140px;
+    padding: 70px 70px 80px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 920px) {
+    .movies {
+        padding: 83px 30px 80px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .movies {
+        padding: 87px 12px 80px;
+    }
+}
