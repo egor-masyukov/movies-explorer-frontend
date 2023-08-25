@@ -27,7 +27,6 @@
 - Java Script
 - Методология БЭМ
 
-
 ## Ссылка на макет light-5
 https://www.figma.com/file/aWCThz7XeTegZv3Bdm9h8v/light-5?type=design&node-id=891-3857&mode=design&t=iWUh46t8QDpq2p9C-0
 
