@@ -128,11 +128,11 @@
     border-radius: 50%;
 }
 
-input:checked+.filterCheckbox__slider {
+.filterCheckbox__switch__active .filterCheckbox__slider {
     background-color: #2BE080;
 }
 
-input:checked+.filterCheckbox__slider:before {
+.filterCheckbox__switch__active .filterCheckbox__slider:before {
     -webkit-transform: translateX(20px);
     -ms-transform: translateX(20px);
     transform: translateX(20px);

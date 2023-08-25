@@ -17,3 +17,10 @@
         padding: 87px 12px 80px;
     }
 }
+
+.movies__span{
+    min-height: 15px;
+    color: red;
+    font-size: 14px;
+    margin: 27px auto 0;
+}

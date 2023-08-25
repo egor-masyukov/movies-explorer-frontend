@@ -114,28 +114,42 @@
     font-weight: 400;
     height: 13px;
 }
+.loginForm__button-span{
+    margin: auto auto 10px;
+    color: #EE3465;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    height: 13px;
+    text-align: center;
+}
 
 .loginForm__button-edit {
     width: 100%;
     height: 45px;
     border: none;
     border-radius: 3px;
-    background: #FF6838;
+    background: #F8F8F8; 
+    color: #C2C2C2;   
     text-align: center;
     font-size: 14px;
     font-weight: 500;
-    cursor: pointer;
-    margin: auto auto 0px;
+    margin: 10px auto 0px;
     padding: auto;
-    color: white;
     text-decoration: none;
     align-items: center;
     justify-content: center;
     display: flex;
     transition: .3s;
 }
+.loginForm__button-edit_active{
+    background: #FF6838;
+    cursor: pointer;
+    color: white;
 
-.loginForm__button-edit:hover {
+}
+
+.loginForm__button-edit_active:hover {
     opacity: 0.8;
 }
 

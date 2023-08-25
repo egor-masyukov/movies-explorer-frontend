@@ -1,4 +1,3 @@
-
 import React from 'react';
 import earth from '../../images/earth.svg';
 import photo from '../../images/photo.jpg';
@@ -6,10 +5,10 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 
-export default function Main() {
+export default function Main({ loggedIn }) {
     return (
         <>
-            <Header />
+            <Header loggedIn={loggedIn} />
             <main className='main'>
                 <section className='lead'>
                     <div className='lead__text-blok'>
@@ -65,17 +64,17 @@ export default function Main() {
                             <p className='aboutMe__subtitle'>Фронтенд-разработчик, 29 лет</p>
                             <p className='aboutMe__paragraph'>Я родился и живу в Санкт-Петербурге, закончил факультет экономики. Я увлекаюсь музыкой, управляю бизнесом по продаже музыкального оборудования.
                                 Увлекался программированием и веб-разработкой со школьных, студенческих времен. Увлечение переросло в желание расти в профессиональном плане. Так я пришел в Яндекс.Практикум на веб-разработку.</p>
-                            <a className='aboutMe__link' href='https://github.com/egor-masyukov' rel="noreferrer" target='_blank'>GitHub</a>
+                            <a className='aboutMe__link' href='https://github.com/egor-masyukov' rel='noreferrer' target='_blank'>GitHub</a>
                         </div>
                         <img className='aboutMe__photo' src={photo} alt='фото' />
                     </div>
                     <p className='about__portfolio'>Портфолио</p>
                     <div className='portfolio'>
-                        <a className='portfolio__item' href='https://egor-masyukov.github.io/how-to-learn/' rel="noreferrer" target='_blank'><p className='portfolio__item-text'>Статичный сайт</p><p className='portfolio__item-link'>↗</p></a>
+                        <a className='portfolio__item' href='https://egor-masyukov.github.io/how-to-learn/' rel='noreferrer' target='_blank'><p className='portfolio__item-text'>Статичный сайт</p><p className='portfolio__item-link'>↗</p></a>
                         <p className='portfolio__item-line'></p>
-                        <a className='portfolio__item' href='https://egor-masyukov.github.io/russian-travel/' rel="noreferrer" target='_blank'><p className='portfolio__item-text'>Адаптивный сайт</p><p className='portfolio__item-link'>↗</p></a>
+                        <a className='portfolio__item' href='https://egor-masyukov.github.io/russian-travel/' rel='noreferrer' target='_blank'><p className='portfolio__item-text'>Адаптивный сайт</p><p className='portfolio__item-link'>↗</p></a>
                         <p className='portfolio__item-line'></p>
-                        <a className='portfolio__item' href='https://egor-masyukov.github.io/mesto-react/' rel="noreferrer" target='_blank'><p className='portfolio__item-text'>Одностраничное приложение</p><p className='portfolio__item-link'>↗</p></a>
+                        <a className='portfolio__item' href='https://egor-masyukov.github.io/mesto-react/' rel='noreferrer' target='_blank'><p className='portfolio__item-text'>Одностраничное приложение</p><p className='portfolio__item-link'>↗</p></a>
                     </div>
                 </section>
             </main >

@@ -35,19 +35,19 @@
 .profileForm__title {
     font-size: 24px;
     font-weight: 500;
-    margin: 0 auto 123px;
+    margin: 0 auto 112px;
     text-align: center;
 }
 
 @media screen and (max-width: 780px) {
     .profileForm__title {
-        margin: 0 auto 97px;
+        margin: 0 auto 81px;
     }
 }
 
 @media screen and (max-width: 570px) {
     .profileForm__title {
-        margin: 0 auto 80px;
+        margin: 0 auto 65px;
     }
 }
 
@@ -55,11 +55,19 @@
     font-size: 11px;
     font-style: normal;
     font-weight: 400;
-    margin: 0;
+    margin: 12px 0 0;
     text-align: right;
     border: none;
     outline: none;
     transition: .5s;
+}
+.profileForm__input-span{
+    color: #EE3465;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    height: 13px;
+    text-align: right;
 }
 
 .profileForm__input:focus {
@@ -80,9 +88,29 @@
 
 .profileForm__input-line {
     border-bottom: 1px solid #E8E8E8;
-    margin: 16px 0;
+    margin: 3px 0;
+}
+.profileForm__button-span{
+    margin: 172px auto 10px;
+    color: #EE3465;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    height: 15px;
+    text-align: center;  
 }
 
+@media screen and (max-width: 780px) {
+    .profileForm__button-span {
+        margin: 162px auto 10px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .profileForm__button-span {
+        margin: 330px auto 10px;
+    }
+}
 .profileForm__button-edit {
     border: none;
     background: none;
@@ -90,19 +118,30 @@
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    cursor: pointer;
-    margin: 220px 0 16px;
+    margin: 10px 0 16px;
+    color: #C2C2C2;   
+    transition: .3s;
 }
+.profileForm__button-edit_active {
+    color: #000;
+    cursor: pointer;
+}
+
+.profileForm__button-edit_active:hover {
+    opacity: 0.7;
+}
+
+
 
 @media screen and (max-width: 780px) {
     .profileForm__button-edit {
-        margin: 209px 0 16px;
+        margin: 10px 0 16px;
     }
 }
 
 @media screen and (max-width: 570px) {
     .profileForm__button-edit {
-        margin: 377px 0 16px;
+        margin: 10px 0 16px;
     }
 }
 
@@ -115,4 +154,8 @@
     color: #EE3465;
     cursor: pointer;
     text-decoration: none;
+    transition: .3s;
+}
+.profileForm__button-exit:hover {
+    opacity: 0.7;
 }

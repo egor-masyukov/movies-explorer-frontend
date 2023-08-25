@@ -91,16 +91,19 @@
 
     .navigationMenu__toggle:checked+.navigationMenu__btn>span {
         transform: rotate(45deg);
+        background-color: rgba(0, 0, 0, 1);
     }
 
     .navigationMenu__toggle:checked+.navigationMenu__btn>span::before {
         top: 0;
         transform: rotate(0deg);
+        background-color: rgba(0, 0, 0, 1);
     }
 
     .navigationMenu__toggle:checked+.navigationMenu__btn>span::after {
         top: 0;
         transform: rotate(90deg);
+        background-color: rgba(0, 0, 0, 1);
     }
 
     .navigationMenu__toggle:checked~.navigation {
@@ -115,23 +118,33 @@
     .navigationMenu__toggle:checked~.navigationMenu__btn {
         position: fixed;
     }
-
-    .navigationMenu__btn>span,
-    .navigationMenu__btn>span::before,
-    .navigationMenu__btn>span::after {
+    
+    .navigationMenu__btn-span,
+    .navigationMenu__btn-span::before,
+    .navigationMenu__btn-span::after {
         display: block;
         position: absolute;
         top: 10px;
         width: 100%;
         height: 2px;
-        background-color: #616161;
+        background-color: rgba(0, 0, 0, 1);
         transition-duration: .25s;
     }
+
+    .navigationMenu__btn-span_mainActive,
+    .navigationMenu__btn-span_mainActive::before,
+    .navigationMenu__btn-span_mainActive::after {
+        background-color: #FFF;
+    }
+    
+
 
     .navigationMenu__btn>span::before {
         content: '';
         top: -8px;
+
     }
+
 
     .navigationMenu__btn>span::after {
         content: '';
@@ -256,6 +269,12 @@
     }
 }
 
+@media screen and (min-width: 781px) {
+    .navigation__movies_activeMain {
+        color: #FFF;
+    }
+}
+
 .navigation__button-account {
     display: flex;
     color: #000;
@@ -283,6 +302,12 @@
     height: 30px;
     border-radius: 4px;
     background: #F9F9F9 url(../../images/account-ico.svg) 50%/11.5px no-repeat;
+}
+
+@media screen and (min-width: 781px) {
+    .navigation__account-ico_activeMain {
+        background-color: #2BE080;
+    }
 }
 
 .navigationAuth__reg {
