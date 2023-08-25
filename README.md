@@ -35,3 +35,6 @@ https://egor.nomoredomains.xyz
 
 ## Ссылка на проект в GitHub
 https://github.com/egor-masyukov/movies-explorer-frontend
+
+## Ссылка на Pull requests проекта в GitHub
+https://github.com/egor-masyukov/movies-explorer-frontend/pull/2
