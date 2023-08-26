@@ -57,6 +57,8 @@
     margin: 184px auto 20px;
     text-align: center;
     cursor: pointer;
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 @media screen and (max-width: 570px) {
