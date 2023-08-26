@@ -1,10 +1,12 @@
 import MainApi from '../../utils/MainApi';
 import React from 'react';
 import Header from '../Header/Header';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { regularEmail } from '../../utils/constants';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-export default function Profile({ loggedIn, handleLogOut, currentUser, setCurrentUser, statusMessage, setStatusMessage }) {
+export default function Profile({ loggedIn, handleLogOut, statusMessage, setStatusMessage }) {
+    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
     const [name, setName] = useState(currentUser.name)
     const [email, setEmail] = useState(currentUser.email)
     const [nameDirty, setNameDirty] = useState(false)
@@ -14,7 +16,6 @@ export default function Profile({ loggedIn, handleLogOut, currentUser, setCurren
     const [formValid, setFormValid] = useState(true)
 
     useEffect(() => {
-        setStatusMessage()
         setName(currentUser.name);
         setEmail(currentUser.email);
     }, [currentUser]);
@@ -27,7 +28,7 @@ export default function Profile({ loggedIn, handleLogOut, currentUser, setCurren
     const handleUpdateUser = (userData) => {
         setStatusMessage()
         MainApi.editUserData(userData.name, userData.email)
-            .then((res) => { setCurrentUser(res) })
+            .then((res) => setCurrentUser(res), setStatusMessage('Данные успешно сохранены'))
             .catch(({ errorCode, errorMessage }) => {
                 if (errorCode === 409) {
                     setStatusMessage('Такой Email уже существует')
@@ -37,6 +38,8 @@ export default function Profile({ loggedIn, handleLogOut, currentUser, setCurren
     }
 
     useEffect(() => {
+        setStatusMessage()
+
         if (nameError || emailError) {
             setFormValid(false)
         } else {
@@ -45,6 +48,7 @@ export default function Profile({ loggedIn, handleLogOut, currentUser, setCurren
     }, [nameError, emailError])
 
     const nameHandler = (e) => {
+        setStatusMessage()
         setName(e.target.value)
         blurHandler(e)
         if (e.target.value.length < 2 || e.target.value.length > 30) {
@@ -58,6 +62,7 @@ export default function Profile({ loggedIn, handleLogOut, currentUser, setCurren
     }
 
     const emailHandler = (e) => {
+        setStatusMessage()
         setEmail(e.target.value)
         blurHandler(e)
         const re = regularEmail;
@@ -81,8 +86,6 @@ export default function Profile({ loggedIn, handleLogOut, currentUser, setCurren
         }
     }
 
-    console.log(statusMessage);
-
     return (
         <>
             <Header loggedIn={loggedIn} />
@@ -96,9 +99,11 @@ export default function Profile({ loggedIn, handleLogOut, currentUser, setCurren
                     <p className='profileForm__input-line'></p>
                     <input className='profileForm__input' onChange={e => emailHandler(e)} value={email} name='email' type='email' placeholder='E-mail' required></input>
                     <span className='profileForm__input-span'>{(emailDirty && emailError) && <div>{emailError}</div>}</span>
+
                     <span className='profileForm__button-span'>{statusMessage}</span>
 
-                    <button className={`profileForm__button-edit ${formValid && (nameDirty || emailDirty) ? 'profileForm__button-edit_active' : ''}`} type='submit' disabled={!formValid || !(nameDirty || emailDirty)}>Редактировать</button>
+                    <button className={`profileForm__button-edit ${(formValid && (nameDirty || emailDirty)) && (name !== currentUser.name || email !== currentUser.email) ? 'profileForm__button-edit_active' : ''}`}
+                        type='submit' disabled={!((formValid && (nameDirty || emailDirty)) && (name !== currentUser.name || email !== currentUser.email))}>Редактировать</button>
                     <button onClick={handleLogOut} type='button' className='profileForm__button-exit'>Выйти из аккаунта</button>
                 </form>
             </section>

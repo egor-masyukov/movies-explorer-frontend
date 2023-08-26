@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { regularEmail } from '../../utils/constants';
 
-export default function Login({ handleLogin, statusMessage }) {
+export default function Login({ handleLogin, statusMessage, setStatusMessage }) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -14,6 +14,7 @@ export default function Login({ handleLogin, statusMessage }) {
     const [formValid, setFormValid] = useState(false)
 
     useEffect(() => {
+        setStatusMessage()
         if (emailError || passwordError) {
             setFormValid(false)
         } else {
@@ -23,6 +24,7 @@ export default function Login({ handleLogin, statusMessage }) {
 
     const emailHandler = (e) => {
         setEmail(e.target.value)
+        setStatusMessage()
         const re = regularEmail;
 
         if (!re.test(String(e.target.value).toLowerCase())) {
@@ -37,6 +39,7 @@ export default function Login({ handleLogin, statusMessage }) {
 
     const passwordHandler = (e) => {
         setPassword(e.target.value)
+        setStatusMessage()
 
         if (e.target.value.length < 5) {
             setPasswordError('Пароль должен быть длинее 5 символов')

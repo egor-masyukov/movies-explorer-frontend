@@ -7,13 +7,11 @@ export default function MovieCard({ movie, savedMovies, onSaveHandler, handleMov
     const location = useLocation().pathname;
     const currentUser = useContext(CurrentUserContext);
     const [isSaved, setIsSaved] = useState(false);
-
     useEffect(() => {
         if (savedMovies.some((savedMovie) => savedMovie.movieId === movie.id)) {
             setIsSaved(true);
         }
     }, [savedMovies, movie.id]);
-
     const handleSaveMovie = () => {
         const movieData = {
             country: movie.country || 'отсутствует',
@@ -24,7 +22,7 @@ export default function MovieCard({ movie, savedMovies, onSaveHandler, handleMov
             image: `https://api.nomoreparties.co${movie.image.url}`,
             trailerLink: movie.trailerLink,
             thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
-            owner: currentUser._id,
+            owner: currentUser.currentUser._id,
             movieId: movie.id,
             nameRU: movie.nameRU || 'отсутствует',
             nameEN: movie.nameEN || 'отсутствует'
