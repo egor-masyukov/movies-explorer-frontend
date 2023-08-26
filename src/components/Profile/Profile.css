@@ -1,0 +1,161 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    align-items: center;
+    z-index: 1;
+    background-color: white;
+}
+
+.profileForm {
+    margin: 74px 0 70px;
+    display: flex;
+    width: 410px;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+@media screen and (max-width: 780px) {
+    .profileForm {
+        justify-content: center;
+        margin: 236px 0 70px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .profileForm {
+        margin: 70px 0 70px;
+        width: 83%;
+    }
+}
+
+.profileForm__title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 auto 112px;
+    text-align: center;
+}
+
+@media screen and (max-width: 780px) {
+    .profileForm__title {
+        margin: 0 auto 81px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .profileForm__title {
+        margin: 0 auto 65px;
+    }
+}
+
+.profileForm__input {
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 12px 0 0;
+    text-align: right;
+    border: none;
+    outline: none;
+    transition: .5s;
+}
+.profileForm__input-span{
+    color: #EE3465;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    height: 13px;
+    text-align: right;
+}
+
+.profileForm__input:focus {
+    box-shadow: 0px 5px 11px -5px rgba(0, 0, 0, 0.15);
+}
+
+.profileForm__input:focus::placeholder {
+    opacity: 0.5;
+    transition: .5s;
+}
+
+.profileForm__input::placeholder {
+    color: #000;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.profileForm__input-line {
+    border-bottom: 1px solid #E8E8E8;
+    margin: 3px 0;
+}
+.profileForm__button-span{
+    margin: 172px auto 10px;
+    color: #EE3465;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    height: 15px;
+    text-align: center;  
+}
+
+@media screen and (max-width: 780px) {
+    .profileForm__button-span {
+        margin: 162px auto 10px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .profileForm__button-span {
+        margin: 330px auto 10px;
+    }
+}
+.profileForm__button-edit {
+    border: none;
+    background: none;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 10px 0 16px;
+    color: #C2C2C2;   
+    transition: .3s;
+}
+.profileForm__button-edit_active {
+    color: #000;
+    cursor: pointer;
+}
+
+.profileForm__button-edit_active:hover {
+    opacity: 0.7;
+}
+
+
+
+@media screen and (max-width: 780px) {
+    .profileForm__button-edit {
+        margin: 10px 0 16px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .profileForm__button-edit {
+        margin: 10px 0 16px;
+    }
+}
+
+.profileForm__button-exit {
+    text-align: center;
+    border: none;
+    background: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: #EE3465;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .3s;
+}
+.profileForm__button-exit:hover {
+    opacity: 0.7;
+}
