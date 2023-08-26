@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Main from '../Main/Main';
@@ -16,12 +16,13 @@ export default function App() {
     const [currentUser, setCurrentUser] = useState({});
     const [statusMessage, setStatusMessage] = useState();
     const [isLoading, setIsLoading] = useState(false);
+    const [isAppLoaded, setIsAppLoaded] = useState(false);
 
     const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        setStatusMessage('')
+        setStatusMessage()
 
         if (token) {
             Promise.all([MainApi.getUserData()])
@@ -34,8 +35,7 @@ export default function App() {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        setStatusMessage('')
-
+        setStatusMessage()
         if (token) {
             MainApi.checkToken(token)
                 .then((res) => {
@@ -45,7 +45,11 @@ export default function App() {
                 }).catch((err) => {
                     console.log(err)
                     handleLogOut();
+                }).finally(() => {
+                    setIsAppLoaded(true);
                 });
+        } else {
+            setIsAppLoaded(true);
         }
     }, []);
 
@@ -54,7 +58,6 @@ export default function App() {
             .then(data => {
                 setCurrentUser(data);
                 setLoggedIn(true);
-                console.log(data);
             })
             .catch(err => console.log(err))
     }
@@ -98,7 +101,8 @@ export default function App() {
 
     return (
         <>
-            <CurrentUserContext.Provider value={currentUser}>
+            <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
+                { isAppLoaded &&
                 <Routes>
                     <Route exact path='/'
                         element={<Main
@@ -129,25 +133,26 @@ export default function App() {
                             component={Profile}
                             loggedIn={loggedIn}
                             handleLogOut={handleLogOut}
-                            currentUser={currentUser}
-                            setCurrentUser={setCurrentUser}
                             statusMessage={statusMessage}
                             setStatusMessage={setStatusMessage} />} />
 
                     <Route path='/signin'
-                        element={<Login
+                        element={loggedIn ? <Navigate to="/movies" /> : <Login
                             handleLogin={handleLogin}
+                            setStatusMessage={setStatusMessage}
                             statusMessage={statusMessage} />} />
 
                     <Route path='/signup'
-                        element={<Register
+                        element={loggedIn ? <Navigate to="/movies" /> : <Register
                             handleRegister={handleRegister}
+                            setStatusMessage={setStatusMessage}
                             statusMessage={statusMessage} />} />
 
                     <Route path='*'
                         element={<PageNotFound />} />
 
                 </Routes>
+                }
             </CurrentUserContext.Provider>
         </>
     );
