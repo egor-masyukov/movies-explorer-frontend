@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { regularEmail } from '../../utils/constants';
 
-export default function Register({ handleRegister, statusMessage }) {
+export default function Register({ handleRegister, statusMessage, setStatusMessage }) {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -17,6 +17,7 @@ export default function Register({ handleRegister, statusMessage }) {
     const [formValid, setFormValid] = useState(false)
 
     useEffect(() => {
+        setStatusMessage()
         if (nameError || emailError || passwordError) {
             setFormValid(false)
         } else {
@@ -26,7 +27,7 @@ export default function Register({ handleRegister, statusMessage }) {
 
     const nameHandler = (e) => {
         setName(e.target.value)
-
+        setStatusMessage()
         if (e.target.value.length < 2 || e.target.value.length > 30) {
             setNameError('Имя должно быть от 2 до 30 символов')
             if (!e.target.value) {
@@ -39,7 +40,7 @@ export default function Register({ handleRegister, statusMessage }) {
 
     const emailHandler = (e) => {
         setEmail(e.target.value)
-
+        setStatusMessage()
         const re = regularEmail;
         if (!re.test(String(e.target.value).toLowerCase())) {
             setEmailError('Введен некорректный email')
@@ -53,7 +54,7 @@ export default function Register({ handleRegister, statusMessage }) {
 
     const passwordHandler = (e) => {
         setPassword(e.target.value)
-
+        setStatusMessage()
         if (e.target.value.length < 5) {
             setPasswordError('Пароль должен быть длинее 5 символов')
             if (!e.target.value) {
