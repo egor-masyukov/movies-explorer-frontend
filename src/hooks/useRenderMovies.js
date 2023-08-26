@@ -32,7 +32,6 @@ function useRenderMovies() {
             .forEach((key) => {
                 if (clientWidth > +key) {
                     countCards = DISPLAYING_NUMBER_MOVIES[key];
-                    console.log(DISPLAYING_NUMBER_MOVIES[key]);
                 }
             });
         return countCards;

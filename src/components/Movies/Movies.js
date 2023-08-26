@@ -18,6 +18,7 @@ export default function Movies({ loggedIn, isLoading, setIsLoading }) {
         renderMore
     } = useRenderMovies();
 
+    const [beatfilmMovies, setBeatfilmMovies] = useState([]);
     const [savedMovies, setSavedMovies] = useState([]);
     const [error, setError] = useState();
 
@@ -41,25 +42,31 @@ export default function Movies({ loggedIn, isLoading, setIsLoading }) {
         }
     }, []);
 
-    const handleSearch = (search, shorts) => {
-        setLoadedMovies([])
-        setIsLoading(true);
-        MoviesApi
-            .getInitialMovies(search, shorts)
-            .then((loadedMovies) => {
-                const filtered = searchFilter(loadedMovies, search, shorts);
-                localStorage.setItem('movies', JSON.stringify(filtered));
-                if (filtered.length === 0) {
-                    setError('Ничего не найдено');
-                } else {
-                    setLoadedMovies(filtered);
-                }
-            })
-            .catch(() => {
+    const handleSearch = async(search, shorts) => {
+        let movies = [];
+
+        if (beatfilmMovies.length) {
+            movies = [...beatfilmMovies];
+        } else {
+            setIsLoading(true);
+            try {
+                movies = await MoviesApi.getInitialMovies(search, shorts);
+                setBeatfilmMovies(movies);
+            } catch (error) {
                 setError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
-            }).finally(() => {
+            } finally {
                 setIsLoading(false);
-            });
+            }
+
+        }
+        setLoadedMovies([]);
+        const filtered = searchFilter(movies, search, shorts);
+        localStorage.setItem('movies', JSON.stringify(filtered));
+        if (filtered.length === 0) {
+            setError('Ничего не найдено');
+        } else {
+            setLoadedMovies(filtered);
+        }
     };
 
     const handlingIdentifier = (id, array) => {

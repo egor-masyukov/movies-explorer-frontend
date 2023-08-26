@@ -1,3 +1,5 @@
+import { SHORTS_DURATION } from '../utils/constants';
+
 export function minuteConversion(n) {
     const num = n;
     const hours = (num / 60);
@@ -20,7 +22,7 @@ export function searchFilter(array, query, short) {
     return array.filter((element) => {
         let durationInHours = true;
         if (short) {
-            durationInHours = element.duration <= 40
+            durationInHours = element.duration <= SHORTS_DURATION
         }
 
         const nameEnumerationRu = element.nameRU
